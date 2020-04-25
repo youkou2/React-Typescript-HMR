@@ -1,8 +1,14 @@
-import React from 'react';
+import { hot } from 'react-hot-loader/root';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App1: React.FC = () => {
+  const [count, setCount] = useState<number>(0);
+  const onClick = () => {
+    setCount(p => p + 1);
+    console.log('Edited !!!');
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -18,9 +24,10 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={onClick}>My Counter : {count}</button>
       </header>
     </div>
   );
 }
 
-export default App;
+export default hot(App);
